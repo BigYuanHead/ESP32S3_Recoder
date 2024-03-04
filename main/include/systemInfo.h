@@ -1,6 +1,51 @@
 #ifndef _SYSTEMINFO_H_
 #define _SYSTEMINFO_H_
 
+
+// #define BUTTON_VOLUP_ID             0
+// #define BUTTON_VOLDOWN_ID           1
+// #define BUTTON_SET_ID               2
+// #define BUTTON_PLAY_ID              3
+// #define BUTTON_MODE_ID              4
+// #define BUTTON_REC_ID               5
+
+typedef enum {
+    TOP_MENU_MODE_KEY = 4,
+} mapKey_topMenu_type_t;
+
+typedef enum {
+    RECODE_MENU_MODE_KEY = 4,
+    RECODE_MENU_START_KEY = 5,
+    RECODE_MENU_PAUSE_KEY = 3,
+    RECODE_MENU_STOP_KEY = 0,
+    RECODE_MENU_MARK_KEY = 2,
+} mapKey_recodeMenu_type_t;
+
+typedef enum {
+    TOP_MENU_MODE_RECODE,
+    TOP_MENU_MODE_PLAY,
+} top_menu_type_t;
+
+typedef enum {
+    RECODE_MENU_MODE, //IDLE
+    RECODE_MENU_START,
+    RECODE_MENU_PAUSE,
+    RECODE_MENU_STOP,
+    RECODE_MENU_MARK,
+} recode_menu_type_t;
+
+typedef struct missionState
+{
+    top_menu_type_t currentTopMenu;
+    recode_menu_type_t currentRecodeMenu;
+} missionState_s ;
+
+#define MISSION_STATE_DEFAULT() {             \
+    .currentTopMenu = TOP_MENU_MODE_RECODE,   \
+    .currentRecodeMenu = RECODE_MENU_MODE,     \
+}
+
+
 typedef enum {
     SYS_STATU_IDLE,
     SYS_STATU_RECORD,
