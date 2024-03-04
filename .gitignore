@@ -51,3 +51,4 @@ coverage_report/
 
 build
 .devcontainer
+managed_components
