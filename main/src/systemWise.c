@@ -91,6 +91,16 @@ void _missionManager() {
 }
 
 
+void _playMission() {
+    ESP_LOGI(logTAG, "[1.2] Set up a sdcard playlist and scan sdcard music save to it");
+    sdcard_list_create(&sdcard_list_handle);
+    sdcard_scan(sdcard_url_save_cb, "/sdcard", 0, (const char *[]) {"mp3"}, 1, sdcard_list_handle);
+    sdcard_list_show(sdcard_list_handle);
+
+    char *url = NULL;
+    sdcard_list_current(sdcard_list_handle, &url);
+}
+
 void _recodeMission(mapKey_recodeMenu_type_t type) {
     // ESP_LOGW(logTAG, "[ 5 ] Tap touch buttons to control music player:");
     // ESP_LOGW(logTAG, "      [Play] to start, pause and resume, [Set] to stop.");
