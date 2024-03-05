@@ -32,6 +32,7 @@ void _missionManager();
 void initSystemWise() {
 
     esp_log_level_set("*", ESP_LOG_WARN);
+    esp_log_level_set("SDCARD", ESP_LOG_DEBUG);
     esp_log_level_set(logTAG, ESP_LOG_DEBUG);
 
     ESP_LOGI(logTAG, "[ 1 ] Initialize all peripherals");

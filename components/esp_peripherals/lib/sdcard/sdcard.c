@@ -68,7 +68,7 @@ esp_err_t sdcard_mount(const char *base_path, periph_sdcard_mode_t mode)
     esp_err_t ret = ESP_FAIL;
 
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-        .format_if_mount_failed = true,
+        .format_if_mount_failed = false,
         .max_files = get_sdcard_open_file_num_max(),
         .allocation_unit_size = 64 * 1024,
     };
